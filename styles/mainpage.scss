@@ -91,15 +91,15 @@
                 }
                 .other-container{
                     width: 45%;
-                    height: 100%;
-                    // background-color: red;
+                    height: fit-content;
+                    background-color: red;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-end;
                     .brand-button-header{
                         width: 90%;
-                        height: 6%;
-                        // background-color: indianred;
+                        height: 3rem;
+                        background-color: indianred;
                         margin-bottom: 0.5rem;
                         display: flex;
                         justify-content: space-between;
@@ -128,13 +128,19 @@
                             height: 100%;
                             // padding: 0;
                             margin: 0;
-                            list-style: square;
+                            // list-style: square;
                             // display: flex;
+                            display: flex;
                             flex-wrap: wrap;
                             li{
-                                font-size: 1.3rem;
+                                font-size: 1.35rem;
                                 // background-color: khaki;
-                                margin-bottom: 0.3rem;
+                                width: fit-content;
+                                margin-bottom: 0.35rem;
+                                margin-top: 0.35rem;
+                                padding: 0;
+                                // list-style: none;
+                                margin-right: 2.5rem;
                             }
                         }
                     }
