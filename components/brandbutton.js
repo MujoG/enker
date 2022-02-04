@@ -1,57 +1,30 @@
 import React, {useState} from 'react';
 
-const Brandbutton = () => {
+const Brandbutton = ({data,name}) => {
 
   const [visibleContainer, setVisibleContainer] = useState(false);
-  console.log(visibleContainer);
-
+//   console.log(visibleContainer);
+      console.log(data);
   return <>
   <div className="brand-button-header">
     <div className="brand-label">
-        BRAND LABEL
+        {name}
     </div>
     <div className="numberofitems">
-        Number
+        {data.length}
     </div>
     <button onClick={() => setVisibleContainer(!visibleContainer)}>
-        Click
+        Pregled
     </button>
   </div>
     {visibleContainer && 
       <div className="brand-specs-container">
       <ol>
-          <li>
-                list item
-          </li>     
-          <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>            <li>
-                list item
-          </li>  
+            {data.map( item => 
+                            <li>
+                            {item.attributes.oznaka}
+                      </li>
+                  )}      
       </ol>
   </div>
     }
