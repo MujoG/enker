@@ -18,8 +18,10 @@ const query = qs.stringify({
 function ContextWrapper({children}){
     const [state, setState] = useState({'nesto':'nesto'});
     const [oznaka, setOznaka] = useState('');
-    const [brand, setBrand] = useState('enker')
-    const [fetch,setFetch] = useState(false)
+    const [brand, setBrand] = useState('enkers')
+    // const [brandValue, setBrandValue] = useState('enkers')
+    const [fetch,setFetch] = useState(false);
+    const [labelar,setLabelar] = useState([]);
 
     const queryoneplug = qs.stringify({ 
       populate:'*',
@@ -45,13 +47,23 @@ function ContextWrapper({children}){
       encodeValuesOnly: true,
     });
 
-    var myquery = `populate=%2A&filters[oznaka][$eq]=${oznaka}`
-    if(brand != 'enker'){
+    const labelarray = [];
+
+    var myquery = `populate=%2A&filters[oznaka][$eq]=${oznaka}`;
+    var ALLPLUGS = `http://localhost:1337/api/${brand}?${query}`;
+
+    console.log(ALLPLUGS)
+    
+    if(brand != 'enkers'){
       var myquery = `populate=%2A&filters[${brand}][oznaka][$eq]=${oznaka}`
+      var ALLPLUGS = `http://localhost:1337/api/${brand}?${query}`;
       console.log(myquery);
+    console.log(ALLPLUGS)
+
     }
 
     const THEURL = `http://localhost:1337/api/enkers?${myquery}`;
+    // const ALLPLUGS = `http://localhost:1337/api/enkers?${query}`;
 
 
     async function getDataStrapi(){
@@ -68,18 +80,42 @@ function ContextWrapper({children}){
         }
       };
 
+      async function getAllPlugs(){
+        try {
+        var response = await axios.get(ALLPLUGS);
+        console.log(response.data.data);
+        const responsearray = response.data.data
+        let labelarray1 = []
+        if(responsearray.length > 0){
+              responsearray.forEach(element => {
+              labelarray1.push(element.attributes.oznaka)
+          });
+          setLabelar(labelarray1)
+        }
+        }
+        catch(err){
+          console.log(err.message);
+          if(err.status === undefined){
+            console.log(err);
+          }
+        }
+      };
+
     useEffect(() => {
       getDataStrapi()
-      console.log(fetch +'mujo');
-      console.log(oznaka);
-      console.log(brand);
     }, [fetch]);
     
-    console.log(oznaka);
+    useEffect(()=> {
+      getAllPlugs()
+      setOznaka('')
+    },[brand])
+
+    // console.log(labelar)
+    
 
     return(
         <mainContext.Provider value = {state}>
-            <iputContext.Provider value = {{oznaka, setOznaka,setBrand,brand,fetch,setFetch}}>
+            <iputContext.Provider value = {{oznaka, setOznaka,setBrand,brand,fetch,setFetch,labelar}}>
             {children}
             </iputContext.Provider>
         </mainContext.Provider>

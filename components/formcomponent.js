@@ -1,4 +1,4 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import Select from 'react-select'
 import { iputContext } from '../context/Cotnext';
 
@@ -15,30 +15,66 @@ const options = [
 
 const Formcomponent = () => {
 
-  const {oznaka,setOznaka,brand,setBrand,fetch,setFetch} = useContext(iputContext)
+  const {oznaka,setOznaka,brand,setBrand,fetch,setFetch,labelar} = useContext(iputContext)
+  const [suggestion, setSuggestion] = useState([]);
+  const [brandlabel, setBrandLabel] = useState('Enker')
+
+  // console.log(labelarray)
 
   function handleValues(values){
-    setBrand(values)
+    setBrand(values.value)
+    // console.log(brand)
+    // setBrandLabel(values.label)
   }
 
-  function handleChange(e){
-    e.preventDefault()
-    setOznaka(e.target.value)
+  function handleChange(oznaka){
+    let matches = []
+    if(oznaka.length > 0){
+      matches = labelar.filter(lbl => {
+        const regex = new RegExp(`${oznaka}`,"gi");
+        console.log(lbl.match(regex))
+        return lbl.match(regex)
+      })
+    }
+    setSuggestion(matches)
+    console.log(suggestion)
+    setOznaka(oznaka)
   }
 
   function handleKlik(){
     setFetch(!fetch)
+    // console.log(brand)
   }
 
-  console.log(brand);
-  console.log(oznaka);
+  function handleSuggestions(item){
+    setOznaka(item)
+    setFetch(!fetch)
+    setSuggestion([])
+  }
+
+  // console.log(brand);
+  // console.log(oznaka);
 
   return <div className='form-container'>
       <div className='form'>
-        <input type="text" placeholder='Unesi oznaku' value = {oznaka} onChange={handleChange}/>
+        <div className="input">
+        <input type="text" placeholder={`Unesi ${brandlabel} oznaku`}
+         onChange={e => handleChange(e.target.value)}
+         value = {oznaka}
+         />
+          {suggestion.length >0 && 
+            <div className="list-container">
+              <ol>
+                {suggestion.map(item => (
+                <li name = {item} onClick={() => handleSuggestions(item)}>{item}</li>
+                ))}
+              </ol>
+            </div>
+          }
+        </div>
         <div className="react-select-container">
-        <Select options = {options} placeholder = 'Odaberi brand' 
-        onChange={values => handleValues(values.value)}
+        <Select options = {options} placeholder = {`${brandlabel}`} 
+        onChange={values => handleValues(values)}
         />
         </div>     
         <button onClick={handleKlik}>Trazi</button>

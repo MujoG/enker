@@ -1,5 +1,5 @@
 nav{
-    background-color: red;
+    // background-color: gray;
     height: 5vh;
     width: 100%;
     .container{
@@ -8,12 +8,15 @@ nav{
             align-items: center;
             .logo{
                 font-size: 1.5rem;
+                // color: red;
             }
             .othernavitems{
-                width: 20%;
-                background-color: khaki;
+                width: 40%;
+                // background-color: khaki;
                 display: flex;
                 justify-content: flex-end;
+                font-size: 1.4rem;
+                font-style: italic;
                 ul{
                     width: 100%;
                     padding: 0;
