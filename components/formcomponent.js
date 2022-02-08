@@ -4,7 +4,7 @@ import { iputContext } from '../context/Cotnext';
 
 
 const options = [
-    { value: 'enker', label: 'Enker' },
+    { value: 'enkers', label: 'Enker' },
     { value: 'ngks', label: 'NGK' },
     { value: 'bosches', label: 'Bosch' },
     { value: 'champions', label: 'Champion' },
@@ -23,8 +23,8 @@ const Formcomponent = () => {
 
   function handleValues(values){
     setBrand(values.value)
-    // console.log(brand)
-    // setBrandLabel(values.label)
+    console.log(brand)
+    setBrandLabel(values.label)
   }
 
   function handleChange(oznaka){
@@ -72,6 +72,7 @@ const Formcomponent = () => {
             </div>
           }
         </div>
+        <span className='justnumber'>{labelar.length}</span>
         <div className="react-select-container">
         <Select options = {options} placeholder = {`${brandlabel}`} 
         onChange={values => handleValues(values)}

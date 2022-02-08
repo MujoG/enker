@@ -7,8 +7,17 @@ nav{
             justify-content: space-between;
             align-items: center;
             .logo{
-                font-size: 1.5rem;
-                // color: red;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 1.4rem;
+                font-style: italic;
+                // background-color: green;
+                width: 25%;
+                img{
+                        margin: 0;
+                        padding: 0;
+                }
             }
             .othernavitems{
                 width: 40%;
@@ -17,6 +26,20 @@ nav{
                 justify-content: flex-end;
                 font-size: 1.4rem;
                 font-style: italic;
+                button{
+                    font-size: 0.9rem;
+                    background-color: red;
+                    color: white;
+                    font-weight: 600;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 0.3rem 0.55rem ;
+                }
+                button:hover{
+                    cursor: pointer;
+                    color: black;
+                    opacity: 0.5;
+                }
                 ul{
                     width: 100%;
                     padding: 0;
