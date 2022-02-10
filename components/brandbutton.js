@@ -21,7 +21,7 @@ const Brandbutton = ({data,name}) => {
       <div className="brand-specs-container">
       <ol>
             {data.map( item => 
-                            <li>
+                            <li key = {item.attributes.oznaka}>
                             {item.attributes.oznaka}
                       </li>
                   )}      
