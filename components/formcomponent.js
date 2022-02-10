@@ -66,7 +66,9 @@ const Formcomponent = () => {
             <div className="list-container">
               <ol>
                 {suggestion.map(item => (
-                <li name = {item} onClick={() => handleSuggestions(item)}>{item}</li>
+                <li name = {item} onClick={() => handleSuggestions(item)}
+                key = {item}
+                >{item}</li>
                 ))}
               </ol>
             </div>
