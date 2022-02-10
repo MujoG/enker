@@ -50,20 +50,19 @@ function ContextWrapper({children}){
     const labelarray = [];
 
     var myquery = `populate=%2A&filters[oznaka][$eq]=${oznaka}`;
-    var ALLPLUGS = `http://localhost:1337/api/${brand}?${query}`;
+    var ALLPLUGS = `http://164.92.236.184:1337/api/${brand}?${query}`;
 
     console.log(ALLPLUGS)
     
     if(brand != 'enkers'){
       var myquery = `populate=%2A&filters[${brand}][oznaka][$eq]=${oznaka}`
-      var ALLPLUGS = `http://localhost:1337/api/${brand}?${query}`;
+      var ALLPLUGS = `http://164.92.236.184:1337/api/${brand}?${query}`;
       console.log(myquery);
     console.log(ALLPLUGS)
 
     }
 
-    const THEURL = `http://localhost:1337/api/enkers?${myquery}`;
-    // const ALLPLUGS = `http://localhost:1337/api/enkers?${query}`;
+    const THEURL = `http://164.92.236.184:1337/api/enkers?${myquery}`;
 
 
     async function getDataStrapi(){
