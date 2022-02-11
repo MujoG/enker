@@ -50,19 +50,19 @@ function ContextWrapper({children}){
     const labelarray = [];
 
     var myquery = `populate=%2A&filters[oznaka][$eq]=${oznaka}`;
-    var ALLPLUGS = `http://164.92.236.184:1337/api/${brand}?${query}`;
+    var ALLPLUGS = `https://enker-28ovk.ondigitalocean.app/api/${brand}?${query}`;
 
     console.log(ALLPLUGS)
     
     if(brand != 'enkers'){
       var myquery = `populate=%2A&filters[${brand}][oznaka][$eq]=${oznaka}`
-      var ALLPLUGS = `http://164.92.236.184:1337/api/${brand}?${query}`;
+      var ALLPLUGS = `https://enker-28ovk.ondigitalocean.app/api/${brand}?${query}`;
       console.log(myquery);
     console.log(ALLPLUGS)
 
     }
 
-    const THEURL = `http://164.92.236.184:1337/api/enkers?${myquery}`;
+    const THEURL = `https://enker-28ovk.ondigitalocean.app/api/enkers?${myquery}`;
 
 
     async function getDataStrapi(){
