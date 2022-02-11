@@ -9,9 +9,9 @@
         .row{
             flex-direction: column;
             .form-container{
-                height: 15%;
+                height: 25%;
                 width: 100%;
-                // background-color: pink;
+                // background-color: rgb(243, 0, 0,0)
                 display: flex;
                 // position: fixed;
                 @include media("<=tablet") {
@@ -125,14 +125,14 @@
                 
                 .specs-container{
                     width: 45%;
-                    height: 80%;
+                    height: 70%;
                     // background-color: red;
                     display: flex;
                     flex-direction: column;
                     @include media("<=tablet") {
                         height: 40%;
                         width: 90%;
-                        
+                        margin-top: 2rem;
                       }
                     .plug-label{
                         font-size: 2.6rem;
@@ -173,7 +173,7 @@
                 }
                 .other-container{
                     width: 45%;
-                    height: 95vh;
+                    height: 75vh;
                     // background-color: red;
                     display: flex;
                     flex-direction: column;
@@ -183,6 +183,7 @@
                     @include media("<=tablet") {
                         width: 100%;
                         align-items: center;
+                        height: 90vh;
                       }
                     .brand-button-header{
                         width: 90%;
