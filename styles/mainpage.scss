@@ -2,6 +2,9 @@
     // background-color: beige;
     width: 100%;
     height: 90vh;
+    @include media("<=tablet") {
+        height: 180vh;
+      }
     .container{
         .row{
             flex-direction: column;
@@ -11,12 +14,20 @@
                 // background-color: pink;
                 display: flex;
                 // position: fixed;
+                @include media("<=tablet") {
+                    // height: 25%;
+                  }
                 .form{
                     width: 100%;
                     height: 100%;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
+                    @include media("<=tablet") {
+                        // background-color: red;
+                        flex-direction: column;
+                        margin-top: 1.5rem;
+                      }
                     .justnumber{
                         font-size: 1.3rem;
                     }
@@ -27,6 +38,10 @@
                         width: 30%;
                         // background-color: red;
                         position: relative;
+                        @include media("<=tablet") {
+                            height: 20%;
+                            width: 80%;
+                          }
                         input{
                             border-radius: 5px;
                             border: 1px solid gray;
@@ -39,6 +54,7 @@
                             width: 100%;
                             height: fit-content;
                             background:rgb(134, 121, 121);
+                            z-index: 100;
                             ol{
                                 margin: 0;
                                 padding: 0;
@@ -78,10 +94,16 @@
                         border: 1px solid gray;
                         background-color: honeydew;
                         opacity: 0.7;
+                        @include media("<=tablet") {
+                            width: 80%;
+                          }
                     }
                     .react-select-container{
                         width: 30%;
                         font-size: 1.3rem;
+                        @include media("<=tablet") {
+                            width: 80%;
+                          }
                     }
 
                 }
@@ -95,12 +117,23 @@
                 margin: 0;
                 width: 100%;
                 margin-top: 3vh;
+                @include media("<=tablet") {
+                    // height: fit-content;
+                    flex-direction: column;
+                    justify-content: space-around;
+                  }
+                
                 .specs-container{
                     width: 45%;
                     height: 80%;
                     // background-color: red;
                     display: flex;
                     flex-direction: column;
+                    @include media("<=tablet") {
+                        height: 40%;
+                        width: 90%;
+                        
+                      }
                     .plug-label{
                         font-size: 2.6rem;
                         margin-bottom: 2rem;
@@ -140,13 +173,17 @@
                 }
                 .other-container{
                     width: 45%;
-                    height: 75vh;
+                    height: 95vh;
                     // background-color: red;
                     display: flex;
                     flex-direction: column;
                     align-items: flex-end;
                     // max-height: 80vh;
                     overflow-y:scroll ;
+                    @include media("<=tablet") {
+                        width: 100%;
+                        align-items: center;
+                      }
                     .brand-button-header{
                         width: 90%;
                         height: 3rem;
@@ -161,15 +198,24 @@
                         .brand-label{
                             font-size: 1.5rem;
                             width: 30%;
+                            @include media("<=tablet") {
+                                width: 50%;
+                              }
                         }
                         .numberofitems{
                             font-size: 1.3rem;
                             width: 30%;
+                            @include media("<=tablet") {
+                                width: 20%;
+                              }
                         }
                         button{
                             font-size: 1.4rem;
                             width: 20%;
                             padding: 0.3rem;
+                            @include media("<=tablet") {
+                                width: 40%;
+                              }
                         }
                     }
                     .brand-specs-container{
@@ -199,6 +245,9 @@
                                 padding: 0;
                                 // list-style: none;
                                 margin-right: 2.5rem;
+                                @include media("<=tablet") {
+                                    width: fit-content;
+                                  }
                             }
                             li::marker{
                                 font-size: 1rem;

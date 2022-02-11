@@ -80,7 +80,7 @@ const Formcomponent = () => {
         onChange={values => handleValues(values)}
         />
         </div>     
-        <button onClick={handleKlik}>Trazi</button>
+        <button onClick={handleKlik}>Traži</button>
       </div>
   </div>;
 };
