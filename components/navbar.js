@@ -16,7 +16,7 @@ const Navbar = () => {
                       <li>Liste</li>
                       <li>Login</li>
                   </ul> */}
-                  <Link href='http://164.92.236.184:1337/admin/'>
+                  <Link href='https://enker-28ovk.ondigitalocean.app/admin/'>
                   <button>LOGIN</button>
                   </Link>
               </div>
