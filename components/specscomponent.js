@@ -33,7 +33,7 @@ const Specscomponent = () => {
                     Otvor ključa
                   </span>
                   <span className='info-info'>
-                      {plug.otvorkljuca}.00 mm
+                      {plug.otvorkljuca} mm
                   </span>
               </li>
               <li>
@@ -41,7 +41,7 @@ const Specscomponent = () => {
                     Dužina navoja
                   </span>
                   <span className='info-info'>
-                      {plug.duzinanavoja}.00 mm
+                      {plug.duzinanavoja} mm
                   </span>
               </li>
               <li>
@@ -70,10 +70,10 @@ const Specscomponent = () => {
               </li>
               <li>
                   <span className='info-text'>
-                    Prostor iskre
+                    Oblik prostora iskre
                   </span>
                   <span className='info-info'>
-                      {plug.prostoriskre}.00 mm
+                      {plug.prostoriskre}mm
                   </span>
               </li>
               <li>
